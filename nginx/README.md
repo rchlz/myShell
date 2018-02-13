@@ -1,10 +1,8 @@
 ﻿# nginx相关配置与脚本
 
 ### nginx
-> 适用于centos6以及以下，位于/etc/rc.d/init.d/nginx
-
-### centos7-nginx
-> 适用于centos7，位于/lib/systemd/system/nginx.service
+> nginx服务脚本，适用于centos6以及以下，位于/etc/rc.d/init.d/nginx。
+> CentOS7系统则是在另外的目录，详见https://github.com/rchlz/myShell/tree/master/Linux/CentOS7
 
 ### nginx-tomcat.conf
 > nginx反向代理tomcat的配置文件
