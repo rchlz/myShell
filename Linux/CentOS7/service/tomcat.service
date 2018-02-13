@@ -1,0 +1,25 @@
+[Unit]  
+Description=Tomcat8  
+After=syslog.target network.target remote-fs.target nss-lookup.target  
+     
+[Service]
+
+User=tomcat  
+Group=tomcat
+
+Type=forking  
+Environment='JAVA_HOME=/opt/jdk1.8.0_91'  
+Environment='CATALINA_PID=/opt/tomcat/tomcat.pid'  
+Environment='CATALINA_HOME=/opt/tomcat/'  
+Environment='CATALINA_BASE=/opt/tomcat/'  
+Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC -XX:MaxPermSize=1024m -Dspring.profiles.active=prod'  
+  
+WorkingDirectory=/opt/tomcat/  
+  
+ExecStart=/opt/tomcat/bin/startup.sh  
+ExecReload=/bin/kill -s HUP $MAINPID  
+ExecStop=/bin/kill -s QUIT $MAINPID  
+PrivateTmp=true  
+     
+[Install]  
+WantedBy=multi-user.target
